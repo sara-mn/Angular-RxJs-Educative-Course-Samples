@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <div class="row text-center">
+    <h1>Search Results</h1>
+  </div>
+  <div class="row results">
+<!--    *ngFor="let photo of photos"-->
+    <div
+      *ngFor="let photo of photoService.latestPhotos |async"
+      class="result-container">
+      <div>{{photo.id}}</div>
+      <img [src]="photo.url" alt="" class="results-img"/>
+
+      <button *ngIf="!hasSavedTag(photo)" id="save-btn" (click)="onSaveClick(photo,'savedTag')" class="btn btn-default results-btn">
+        Save
+      </button>
+
+      <div *ngIf="hasSavedTag(photo)" class="">
+        Saved
+      </div>
+    </div>
+  </div>
+</div>
