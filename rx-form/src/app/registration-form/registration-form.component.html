@@ -1,0 +1,23 @@
+<form [formGroup]="registrationForm">
+  <label>
+    Name:
+    <input formControlName="username"/>
+  </label>
+  <label>
+    Phone Number:
+    <input formControlName="phoneNumber"/>
+  </label>
+  <div *ngIf="phoneNumber?.invalid
+    && (phoneNumber?.dirty || phoneNumber?.touched)">
+    <div *ngIf="phoneNumber?.errors?.tooLong">
+      There are too many digits in your phone number!
+      Wanted 10, but you have
+      {{ phoneNumber?.errors?.tooLong.numDigits }}
+    </div>
+    <div *ngIf="phoneNumber?.errors?.tooShort">
+      Your phone number is too short!
+      Wanted 10, but you have
+      {{phoneNumber?.errors?.tooShort.numDigits }}
+    </div>
+  </div>
+</form>

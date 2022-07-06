@@ -5,9 +5,9 @@
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
+    "noPropertyAccessFromIndexSignature": false,
     "strict": true,
     "noImplicitOverride": true,
-    "noPropertyAccessFromIndexSignature": false,
     "noImplicitReturns": false,
     "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
@@ -16,13 +16,10 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
     "target": "es2017",
     "module": "es2020",
     "lib": [
-      "es2020",
-      "dom"
+      "es5", "es6", "dom"
     ]
   },
   "angularCompilerOptions": {
