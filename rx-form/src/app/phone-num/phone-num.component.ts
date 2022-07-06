@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, AbstractControl, ValidatorFn} from '@angular/forms';
+import {UntypedFormControl, AbstractControl, ValidatorFn} from '@angular/forms';
 
 
 @Component({
@@ -8,7 +8,7 @@ import {FormControl, AbstractControl, ValidatorFn} from '@angular/forms';
   styleUrls: ['./phone-num.component.scss']
 })
 export class PhoneNumComponent implements OnInit {
-  phoneNumber = new FormControl("",[ (control: AbstractControl) => {
+  phoneNumber = new UntypedFormControl("",[ (control: AbstractControl) => {
     // remove anything that isn't a digit
     const numDigits = control.value.replace(/[^\d]+/g, '').length;
     // Only worried about US-based numbers for now, no need for country code

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AbstractControl, FormArray, FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {AbstractControl, UntypedFormArray, UntypedFormBuilder, UntypedFormGroup, Validators} from '@angular/forms';
 import {debounceTime, map} from 'rxjs';
 import {HttpService} from '../services/http.service';
 const addressModel = {
@@ -55,10 +55,10 @@ const ccModel = {
   styleUrls: ['./registration-form.component.scss']
 })
 export class RegistrationFormComponent implements OnInit {
-  registrationForm: FormGroup;
+  registrationForm: UntypedFormGroup;
   endpoint: string = '';
 
-  constructor(private formBuilder: FormBuilder,
+  constructor(private formBuilder: UntypedFormBuilder,
               private httpService: HttpService) {
     const checkAddress = (control: AbstractControl) => {
       const address = {
@@ -199,7 +199,7 @@ export class RegistrationFormComponent implements OnInit {
   }
 
   get addresses() {
-    return this.registrationForm.get('addresses') as FormArray;
+    return this.registrationForm.get('addresses') as UntypedFormArray;
   }
 
   addAddress() {
